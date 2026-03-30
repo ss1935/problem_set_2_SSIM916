@@ -12,9 +12,11 @@ This repository contains a four-notebook NLP pipeline that applies sentiment ana
 ├── 02_tfidf_logreg.ipynb         # TF-IDF + Logistic Regression baseline model
 ├── 03_roberta.ipynb              # RoBERTa transfer learning model
 ├── 04_business_insights.ipynb    # Complaint urgency and keyword analysis
-└── data/
-    └── cleaned_reviews.csv       # Pre-cleaned dataset (10,000 rows) for replication
+├── README.md
+└── cleaned_reviews.csv           # Pre-cleaned dataset (10,000 rows) for replication
 ```
+
+> **Important:** `cleaned_reviews.csv` is stored at the root of the repository. Before running any notebook, create a folder named `data` in the same directory as the notebooks and move `cleaned_reviews.csv` into it. The notebooks expect the file at `data/cleaned_reviews.csv` and will not run correctly without this step.
 
 ---
 
@@ -52,9 +54,12 @@ Notebooks must be run **in order**. Each notebook reads from the output of the p
 
 ### Option A — Use the Pre-cleaned Dataset (Recommended for Replication)
 
-The `data/` folder contains `cleaned_reviews.csv`, a pre-cleaned and sampled file of **10,000 reviews** ready for use. This file was produced by Notebook 1 and is provided to avoid the need to download the full 8.35 GB raw dataset.
+`cleaned_reviews.csv` is provided at the root of the repository. It is a pre-cleaned and sampled file of **10,000 reviews** produced by Notebook 1, provided to avoid the need to download the full 8.35 GB raw dataset.
 
-To use this option, **skip Notebook 1** and begin directly from Notebook 2. Ensure `cleaned_reviews.csv` remains inside the `data/` folder.
+To use this option:
+1. Create a folder named `data` in the same directory as the notebooks
+2. Move `cleaned_reviews.csv` into the `data/` folder
+3. **Skip Notebook 1** and begin directly from Notebook 2
 
 ---
 
@@ -104,7 +109,7 @@ Run all cells in Notebook 1 before proceeding to Notebook 2.
 
 ## Reproducibility
 
-A fixed random seed of `42` is applied throughout the pipeline. As long as the same `SAMPLE_SIZE` and input file are used, all results will be identical across runs. The `cleaned_reviews.csv` in the `data/` folder was produced with `SAMPLE_SIZE = 10_000` and `random_state = 42`.
+A fixed random seed of `42` is applied throughout the pipeline. As long as the same `SAMPLE_SIZE` and input file are used, all results will be identical across runs. The provided `cleaned_reviews.csv` was produced with `SAMPLE_SIZE = 10_000` and `random_state = 42`.
 
 ---
 
